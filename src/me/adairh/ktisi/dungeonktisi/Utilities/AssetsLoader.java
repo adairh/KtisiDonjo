@@ -49,7 +49,7 @@ public class AssetsLoader {
         System.out.println("Loading texture...");
         this.handle = handle;
         tile_size   = handle.size;
-        terminalShowing();
+        //terminalShowing();
     }
 
     public void load() throws IOException {
@@ -192,7 +192,7 @@ public class AssetsLoader {
                         iV.setX(x_index * tile_size + handle.spacing);
                         iV.setY(y_index * tile_size + 50);
                         if (index < 21 || index > 24) {
-                            if (!stepOn.contains(block)) {
+                            if (!stepOn.contains(block) && index != 25 && index != 27) {
                                 if (y_tile == 0) {
                                     iV.setFitHeight(tile_size / 2);
                                 } else if (y_tile == room.getHeight() - 1) {
@@ -210,16 +210,16 @@ public class AssetsLoader {
                                 iV.setFitHeight(tile_size);
                                 iV.setFitWidth(tile_size);
                                 if (y_tile == 1) {
-                                    iV.setY(y_index * tile_size + 50 - tile_size/2);
+                                    iV.setY(y_index * tile_size + 50);
                                     iV.setX(x_index * tile_size + handle.spacing);
                                 } else if (y_tile == room.getHeight() - 2) {
-                                    iV.setY(y_index * tile_size + 50 + tile_size/2);
+                                    iV.setY(y_index * tile_size + 50);
                                     iV.setX(x_index * tile_size + handle.spacing);
                                 } else if (x_tile == 1) {
-                                    iV.setX(x_index * tile_size + handle.spacing - tile_size / 2);
+                                    iV.setX(x_index * tile_size + handle.spacing);
                                     iV.setY(y_index * tile_size + 50);
                                 } else if (x_tile == room.getWidth() - 2) {
-                                    iV.setX(x_index * tile_size + handle.spacing + tile_size/2);
+                                    iV.setX(x_index * tile_size + handle.spacing);
                                     iV.setY(y_index * tile_size + 50);
                                 }
                             }
