@@ -1,5 +1,6 @@
 package me.adairh.ktisi.dungeonktisi.Level;
 
+import me.adairh.ktisi.dungeonktisi.Entity.Entities.Enermies.Child.Ghost;
 import me.adairh.ktisi.dungeonktisi.Entity.Entities.Enermies.Child.Golem;
 import me.adairh.ktisi.dungeonktisi.Entity.Entities.Enermies.Child.Skeleton;
 import me.adairh.ktisi.dungeonktisi.Entity.Entities.Enermies.Child.Zombie;
@@ -60,11 +61,23 @@ public enum RoomType {
             new SoundEffect[]{SoundEffect.FLOOR_STEP},
             0),
     PURPLE_HALL("purple_hall",
-            new Class[]{},
-            new Block[]{Block.PURPLE_WOOL},
+            new Class[]{Ghost.class},
+            new Block[]{Block.PURPLE_WOOL, Block.PURPLE_CONCRETE, Block.PURPLE_CONCRETE_POWER},
             new Block[]{Block.PURPLE_STAINED_GLASS, Block.PURPLE_TERRACOTTA},
             new SoundEffect[]{SoundEffect.FLOOR_STEP},
-            0)
+            0),
+    CYAN_HALL("cyan_hall",
+            new Class[]{Ghost.class, Zombie.class},
+            new Block[]{Block.CYAN_WOOL, Block.CYAN_CONCRETE, Block.CYAN_CONCRETE_POWER},
+            new Block[]{Block.CYAN_STAINED_GLASS, Block.CYAN_TERRACOTTA},
+            new SoundEffect[]{SoundEffect.FLOOR_STEP},
+            5),
+    GREEN_HALL("purple_hall",
+            new Class[]{Ghost.class, Zombie.class, Golem.class},
+            new Block[]{Block.GREEN_WOOL, Block.GREEN_CONCRETE, Block.GREEN_CONCRETE_POWER},
+            new Block[]{Block.GREEN_STAINED_GLASS, Block.GREEN_TERRACOTTA},
+            new SoundEffect[]{SoundEffect.FLOOR_STEP},
+            15)
     ;
 
     private String name;
