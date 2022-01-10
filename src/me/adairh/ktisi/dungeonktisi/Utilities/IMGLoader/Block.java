@@ -60,6 +60,20 @@ public enum Block {
     PURPLE_STAINED_GLASS( 105, new Image("assets/floor/purple/purple_stained_glass.png"), "purple_stained_glass"),
     PURPLE_TERRACOTTA( 106, new Image("assets/floor/purple/purple_terracotta.png"), "purple_terracotta"),
     PURPLE_WOOL( 107, new Image("assets/floor/purple/purple_wool.png"), "purple_wool"),
+    PURPLE_CONCRETE_POWER( 108, new Image("assets/floor/purple/purple_concrete_powder.png"), "purple_concrete_powder"),
+    PURPLE_CONCRETE( 109, new Image("assets/floor/purple/purple_concrete.png"), "purple_concrete"),
+
+    CYAN_STAINED_GLASS( 115, new Image("assets/floor/cyan/cyan_stained_glass.png"), "cyan_stained_glass"),
+    CYAN_TERRACOTTA( 116, new Image("assets/floor/cyan/cyan_terracotta.png"), "cyan_terracotta"),
+    CYAN_WOOL( 117, new Image("assets/floor/cyan/cyan_wool.png"), "cyan_wool"),
+    CYAN_CONCRETE_POWER( 118, new Image("assets/floor/cyan/cyan_concrete_powder.png"), "cyan_concrete_powder"),
+    CYAN_CONCRETE( 119, new Image("assets/floor/cyan/cyan_concrete.png"), "cyan_concrete"),
+    
+    GREEN_STAINED_GLASS( 120, new Image("assets/floor/green/green_stained_glass.png"), "green_stained_glass"),
+    GREEN_TERRACOTTA( 121, new Image("assets/floor/green/green_terracotta.png"), "green_terracotta"),
+    GREEN_WOOL( 122, new Image("assets/floor/green/green_wool.png"), "green_wool"),
+    GREEN_CONCRETE_POWER( 123, new Image("assets/floor/green/green_concrete_powder.png"), "green_concrete_powder"),
+    GREEN_CONCRETE( 124, new Image("assets/floor/green/green_concrete.png"), "green_concrete"),
 
     QUARTZ_1(110, new Image("assets/floor/quartz/quartz1.png"), "quartz_1"),
     QUARTZ_2(111, new Image("assets/floor/quartz/quartz2.png"), "quartz_2"),
