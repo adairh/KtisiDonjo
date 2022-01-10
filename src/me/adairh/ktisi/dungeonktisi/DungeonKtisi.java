@@ -36,51 +36,115 @@ public class DungeonKtisi extends Application{
         //gameStart(primaryStage);
         //primaryStage.setResizable(false);
         primaryStage.setTitle("Ktisi Donjo");
-        primaryStage.getIcons().add(new Image("assets/action/KeyChest.png"));
+        primaryStage.getIcons().add(new Image("assets/ktisi_2.png"));
+        primaryStage.setResizable(false);
 
+        Timer timer = new Timer();
 
-        ImageView im = new ImageView();
+        ImageView iv = new ImageView();
         Image i = new Image("assets/ktisi_2.png");
-        im.setImage(i);
-        im.setFitWidth(570/3);
-        im.setFitHeight(540/3);
-        im.setX(570/2 - im.getFitWidth()/2);
-        im.setY(540/2 - im.getFitHeight()/2);
-        im.setOpacity(0.0);
+        iv.setImage(i);
+        iv.setFitWidth(570/3);
+        iv.setFitHeight(540/3);
+        iv.setX(570/2 - iv.getFitWidth()/2);
+        iv.setY(540/2 - iv.getFitHeight()/2);
+        iv.setOpacity(0.0);
         StackPane root = new StackPane();
         Rectangle rect = new Rectangle(570,540);
         rect.setFill(Color.BLACK);
-        root.getChildren().addAll(rect, im);
+        root.getChildren().addAll(rect, iv);
         Scene scene = new Scene(root,570, 540);
         primaryStage.setScene(scene);
         primaryStage.show();
-        AudioClip audio = new AudioClip(Objects.requireNonNull(DungeonKtisi.class.getResource("/audio/ktisi.m4a")).toExternalForm());
+        AudioClip audio = new AudioClip(Objects.requireNonNull(DungeonKtisi.class.getResource("/audio/intro.mp3")).toExternalForm());
         audio.setVolume(0.6);
         audio.play();
         TimerTask welcomeTask = new TimerTask() {
         boolean up = true;
             @Override
             public void run() {
-                double opacity = im.getOpacity();
+                double opacity = iv.getOpacity();
                 if (up) {
-                    opacity += 0.04;
+                    opacity += 0.02;
                 } else {
-                    opacity -= 0.04;
+                    opacity -= 0.02;
                 }
                 if (opacity > 1) {
                     up = false;
                 }
-                im.setOpacity(opacity);
-                if (opacity < 0) this.cancel();
+                iv.setOpacity(opacity);
+                if (opacity < 0) {
+                    this.cancel();
+                }
             }
 
         };
+
+        Task<Void> hj = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                try {
+                    Thread.sleep(5800);
+                } catch (InterruptedException e) {
+                }
+                return null;
+            }
+        };
+
+        hj.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent event) {
+                ImageView im = new ImageView();
+                Image i = new Image("assets/headphone.png");
+                im.setImage(i);
+                im.setFitWidth(570/2);
+                im.setFitHeight(540/2);
+                im.setX(570/2 - im.getFitWidth()/2);
+                im.setY(540/2 - im.getFitHeight()/2);
+                im.setOpacity(0.0);
+                StackPane root = new StackPane();
+                Rectangle rect = new Rectangle(600,600);
+                rect.setX(0);
+                rect.setY(0);
+                rect.setFill(Color.BLACK);
+                root.getChildren().addAll(rect, im);
+                Scene scene = new Scene(root,570, 540);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+                AudioClip audio = new AudioClip(Objects.requireNonNull(DungeonKtisi.class.getResource("/audio/intro.mp3")).toExternalForm());
+                audio.setVolume(0.6);
+                audio.play();
+                TimerTask task = new TimerTask() {
+                    boolean up = true;
+                    @Override
+                    public void run() {
+                        double opacity = im.getOpacity();
+                        if (up) {
+                            opacity += 0.02;
+                        } else {
+                            opacity -= 0.02;
+                        }
+                        if (opacity > 1) {
+                            up = false;
+                        }
+                        im.setOpacity(opacity);
+                        if (opacity < 0) {
+                            this.cancel();
+                        }
+                    }
+                };
+
+
+                timer.schedule(task, 50,50);
+            }
+        });
+
 
         Task<Void> sleeper = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
                 try {
-                    Thread.sleep(2550);
+                    Thread.sleep(11600);
                 } catch (InterruptedException e) {
                 }
                 return null;
@@ -89,6 +153,7 @@ public class DungeonKtisi extends Application{
         sleeper.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
             @Override
             public void handle(WorkerStateEvent event) {
+                timer.cancel();
                 primaryStage.setScene(MainMenu.getMainScene(primaryStage, dungeonktisi));
                 primaryStage.show();
                 stage = primaryStage;
@@ -96,7 +161,7 @@ public class DungeonKtisi extends Application{
             }
         });
         new Thread(sleeper).start();
-        Timer timer = new Timer();
+        new Thread(hj).start();
         timer.schedule(welcomeTask, 50,50);
         //primaryStage.show();
     }

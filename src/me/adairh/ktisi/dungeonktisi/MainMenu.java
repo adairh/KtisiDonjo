@@ -118,7 +118,7 @@ public class MainMenu {
     }
 
     private static void setContentStyle(Label label) {
-        label.setStyle("-fx-text-fill: #C0C0C0FF; -fx-font-family: 'Fuzzy Bubbles', cursive; -fx-font-size: 25");
+        label.setStyle("-fx-text-fill: #C0C0C0FF; -fx-font-family: 'Fuzzy Bubbles', cursive; -fx-font-size: 20");
         label.setPadding(new Insets(10, 10, 10,10));
     }
 
@@ -157,11 +157,11 @@ public class MainMenu {
         hbox.setPadding(new Insets(10));
 
         Label contents = new Label(
-                "Written by adairh from Ktisi team\n" +
-                "Made of Java, with OpenJavaFX library and CSS for stylesheets\n" +
+                "Viết bởi adairh đến từ Ktisi Team\n" +
+                "Trò chơi được viết bằng Java\n" +
                         "" +
-                        "This is my first independent game, so there are maybe some bugs and glitches\n" +
-                        "Hope you like this <3\n" +
+                        "Đây là trò chơi đầu tiên của mình, nên có thể sẽ có một vài lỗi\n" +
+                        "Mong mọi người yêu thích <3\n" +
                         "Enjoy~!\n"
 
         );
@@ -242,40 +242,52 @@ public class MainMenu {
 
 
 
-        Label moveK = new Label("Use S W A D");
+        Label moveK = new Label("Phím S W A D");
         setContentStyle(moveK);
-        Label idenK = new Label("Use I");
+        Label numK = new Label("Phím NUMPAD");
+        setContentStyle(numK);
+        Label idenK = new Label("Phím I");
         setContentStyle(idenK);
-        Label dropK = new Label("Use X");
+        Label dropK = new Label("Phím Q");
         setContentStyle(dropK);
-        Label useK = new Label("Use Z");
+        Label useK = new Label("Phím O");
         setContentStyle(useK);
-        Label invenK = new Label("Use E");
+        Label invenK = new Label("Phím E");
         setContentStyle(invenK);
+        Label attK = new Label("Phím J");
+        setContentStyle(attK);
+        Label lightK = new Label("Phím U");
+        setContentStyle(lightK);
         VBox keyCode = new VBox();
         keyCode.setBackground(Background.EMPTY);
         //keyCode.setMinWidth(570);
         keyCode.setAlignment(Pos.TOP_LEFT);
         keyCode.setSpacing(-20);
-        keyCode.getChildren().addAll(moveK, idenK, dropK, useK, invenK);
+        keyCode.getChildren().addAll(moveK, numK, idenK, dropK, useK, invenK, attK, lightK);
 
 
-        Label moveU = new Label(": to move");
+        Label moveU = new Label(": để di chuyển");
         setContentStyle(moveU);
-        Label idenU = new Label(": to identify item");
+        Label numU = new Label(": để thay đổi các ô túi đồ");
+        setContentStyle(numU);
+        Label idenU = new Label(": để khai quan vật phẩm");
         setContentStyle(idenU);
-        Label dropU = new Label(": to drop item");
+        Label dropU = new Label(": để thả vật phẩm");
         setContentStyle(dropU);
-        Label useU = new Label(": to use item");
+        Label useU = new Label(": để sử dụng vật phẩm");
         setContentStyle(useU);
-        Label invenU = new Label(": to open Inventory");
+        Label invenU = new Label(": để mở túi đồ");
         setContentStyle(invenU);
+        Label atkU = new Label(": để đánh");
+        setContentStyle(atkU);
+        Label lightU = new Label(": để tiếp đuốc");
+        setContentStyle(lightU);
         VBox usage = new VBox();
         usage.setBackground(Background.EMPTY);
         //usage.setMinWidth(570);
         usage.setAlignment(Pos.TOP_LEFT);
         usage.setSpacing(-20);
-        usage.getChildren().addAll(moveU, idenU, dropU, useU, invenU);
+        usage.getChildren().addAll(moveU, numU, idenU, dropU, useU, invenU, atkU, lightU);
 
 
         HBox contentKey = new HBox();
@@ -291,8 +303,7 @@ public class MainMenu {
                     "Use I\t: to identify ring items\n" +
                     "Use X\t: to drop items\n" +
                     "Use Z\t: to use items\n" +*/
-                    "Move forward to monsters' side to attack\n" +
-                    "Kill monster to gain EXP, explore all rooms and beat the game!\n"
+                    "Giết quái để nhận Kinh nghiệm, khám phá tất cả các phòng và chiến thắng trò chơi!\n"
 
         );
         contents.setWrapText(true);
