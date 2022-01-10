@@ -72,12 +72,12 @@ public enum RoomType {
             new Block[]{Block.CYAN_STAINED_GLASS, Block.CYAN_TERRACOTTA},
             new SoundEffect[]{SoundEffect.FLOOR_STEP},
             5),
-    GREEN_HALL("purple_hall",
+    GREEN_HALL("green_hall",
             new Class[]{Ghost.class, Zombie.class, Golem.class},
             new Block[]{Block.GREEN_WOOL, Block.GREEN_CONCRETE, Block.GREEN_CONCRETE_POWER},
             new Block[]{Block.GREEN_STAINED_GLASS, Block.GREEN_TERRACOTTA},
             new SoundEffect[]{SoundEffect.FLOOR_STEP},
-            15)
+            10)
     ;
 
     private String name;

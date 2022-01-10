@@ -82,15 +82,16 @@ public class Room {
 
     private void roomType() {
         this.roomType = RoomType.getRandomType();
-        System.out.println(roomType.getName());
-        if (height % 2 == 0 || width % 2 == 0) {
-            while (Arrays.asList(/*RoomType.LIBRARY, */RoomType.HALL_QUARTZ, RoomType.ROUNDED_QUARTZ, RoomType.VERTICAL_QUARTZ, RoomType.PURPLE_HALL).contains(roomType)) {
-                this.roomType = RoomType.getRandomType();
-            }
-        }
         while (level < roomType.getLevelAppear()){
             this.roomType = RoomType.getRandomType();
         }
+        System.out.println(roomType.getName());
+        if (height % 2 == 0 || width % 2 == 0) {
+            while (Arrays.asList(/*RoomType.LIBRARY, */RoomType.HALL_QUARTZ, RoomType.ROUNDED_QUARTZ, RoomType.VERTICAL_QUARTZ).contains(roomType)) {
+                this.roomType = RoomType.getRandomType();
+            }
+        }
+
 
         Random generator = new Random();
 
@@ -126,13 +127,8 @@ public class Room {
             }
         }
 
-        else if (this.roomType == RoomType.GRASS) {
-            addChests(false);
-        }
-        else if (this.roomType == RoomType.WOODEN) {
-            addChests(false);
+        addChests(false);
 
-        }
         /*else if (this.roomType == RoomType.LIBRARY) {
             for (int x = 2; x < width - 2; x++) {
                 for (int y = 2; y < height - 2; y += 2) {
@@ -145,7 +141,7 @@ public class Room {
                 }
             }
         }*/
-        else if (this.roomType == RoomType.PURPLE_HALL) {
+        /*else if (this.roomType == RoomType.PURPLE_HALL) {
             Random random = new Random();
 
 
@@ -157,21 +153,19 @@ public class Room {
 
 
             int k = 0;
-            /*while (k < Math.PI * 2){
+            *//*while (k < Math.PI * 2){
                 double i = Math.sin(k) * range;
                 double j = Math.cos(k) * range;
                 if ((int)i+centerX >= 1 && (int)i+centerX < height-1 && (int)j+centerY >= 1 && (int)j+centerY < width-1) {
                     sizes[(int)i+centerX][(int)j+centerY] = Block.PURPLE_TERRACOTTA.getId();
                     k += Math.PI / 16;
                 }
-            }*/
+            }*//*
 
             sizes[centerX][centerY] = Block.PURPLE_STAINED_GLASS.getId();
 
-        }
-        else {
-            addChests(false);
-        }
+        }*/
+
 
     }
 
